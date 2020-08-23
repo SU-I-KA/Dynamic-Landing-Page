@@ -1,0 +1,415 @@
+/*
+ *
+ * CSS written based on SMACSS architecture.
+ * To learn more, visit: http://smacss.com/
+ * 
+ * For simplicity, no reset or normalize is added. 
+ * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
+ *
+*/
+
+
+/* ---- Base Rules ---- */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----- smooth scrolling -------*/
+html {
+    scroll-behavior: smooth;
+}
+  
+
+body {
+    background: rgb(136,203,171);
+    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
+    margin: 0;
+    font-family: 'Merriweather', serif;
+    color: #fff;
+}
+
+/* ------- navbar as flexible and responsive -------- */
+.wrapper {
+    max-width: 1140px;
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}  
+
+
+header .row {
+    justify-content: space-between;
+    align-items: center;
+}
+  
+
+/* ------- website logo ----------- */
+header .logo a {
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+header .logo a:hover {
+    color: #ED5565;
+    transition: all 0.5s;
+}
+  
+
+/* Typeography General*/
+h1 {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 3em;
+    margin: 2em 1rem;
+}
+
+
+/* ------------  media queries -------------- */
+@media only screen and (min-width: 35em){
+    h1 {
+        font-size: 7em;
+        margin: 2em 4rem 1em;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    section {
+        max-height: 50vh;
+        padding: 0;
+        padding-bottom: 5px;
+    }
+
+    p {
+        font-size: 0.8em;
+    }
+    .landing__container {
+        padding: 3em;
+    }
+}
+
+
+@media screen and (max-width: 590px) {
+    section {
+        max-height: 82vh;
+    }
+
+    h2 {
+        font-size:40px!important;
+    }
+}
+
+
+
+@media only screen and (max-width: 507px) {
+    .navbar__menu ul li a {
+        font-size: 9px!important;
+    }
+}
+
+
+@media only screen and (max-width: 485px) {
+    section {
+        max-height: 96vh;
+        
+    }
+
+    p {
+        font-size: 13px;
+    }
+    
+}
+
+
+@media screen and (max-width: 410px) {
+    section {
+        max-height: 80vh;
+        overflow: auto;
+        
+    }
+
+    .logo {
+        display: none;
+    }
+    
+}
+
+/* ------------------ end of media queries ----------------- */
+
+
+h2 {
+    border-bottom: 1px solid #cc1;
+    font-family: 'Oxygen', Sans-Serif;
+    font-size: 3em;
+    color: #fff;
+}
+
+p {
+    line-height: 1.6em;
+    color: #eee;
+}
+
+/* ---- Layout Rules ---- */
+main {
+    margin: 10vh 1em 10vh;
+}
+
+.main-hero {
+    min-height: 40vh;
+    padding-top: 3em;
+}
+
+
+.full-screen {
+    min-height: 50vh;
+}
+
+section {
+    position: relative;
+    min-height: 70vh;
+    padding-top: 45px;
+}
+
+
+/* ---- Module Rules ---- */
+
+/* --- Navigation Styles ----*/
+.navbar__menu ul {
+    padding-left: 0;
+    margin: 0;
+    text-align: right;
+    list-style: none;
+}
+
+.navbar__menu li {
+    display: inline-block;
+    margin-left: 35px;
+}
+
+
+.navbar__menu ul li a {
+    font-size: 15px;
+    text-decoration: none;
+    display: block;
+    line-height: 60px;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+/*
+.navbar__menu .menu__link {
+    display: block;
+    padding: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.navbar__menu .menu__link:hover {
+    background: #333;
+    color: #fff;
+    transition: ease 0.3s all;
+}
+*/
+
+
+/* ----------------- active state of the navigation menu ---------------- */
+header .navbar__menu ul li a.active::before {
+    width: 100%;
+    left: 0;
+}
+
+header .navbar__menu ul li a::before {
+    content: '';
+    height: 3px;
+    background-color: #fff;
+    width: 0%;
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    transition: all 0.3s ease;
+}
+
+
+header .navbar__menu ul li a:hover::before {
+    width: 100%;
+    left: 0;
+}
+  
+
+/* Header Styles */
+.page__header {
+    background: #000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 15;
+    border-bottom: 1px solid #eee;
+    padding: 0 15px;
+    text-align: center;
+}
+
+/* Footer Styles */
+.page__footer {
+    background: #000;
+    padding: 3em;
+    color: #fff;
+}
+
+.page__footer p{
+    color: #fff;
+}
+
+
+/* ---- Theme Rules ---- */
+/* Landing Container Styles */
+.landing__container {
+    padding: 1em;
+    text-align: left;
+    display: block;
+}
+
+@media only screen and (min-width: 1000px){
+    .landing__container {
+        max-width: 50em;
+        padding: 10px 4em;
+        clear: both;
+        margin-top: 30px;
+        
+    }
+}
+
+section:nth-of-type(even) .landing__container {
+    margin-right: 0;
+    margin-left: auto;
+    text-align: right; 
+}
+
+/* Background Circles */
+/* Note that background circles are created with psuedo elements before and after */
+/* Circles appear to be random do to use of :nth-of-type psuedo class */
+section:nth-of-type(odd) .landing__container::before {
+    content: '';
+    background: rgba(255, 255, 255, 0.187);
+    position: absolute;
+    z-index: -5;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(even) .landing__container::before {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    position: absolute;
+    top: 3em;
+    right: 3em;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n) .landing__container::after {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -5;
+    width: 10vh;
+    height: 10vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+section:nth-of-type(3n + 1) .landing__container::after {
+    content: '';
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    position: absolute;
+    right: 20vw;
+    bottom: -5em;
+    z-index: -5;
+    width: 15vh;
+    height: 15vh;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease 0.5s all;
+}
+
+
+/* ---- Theme State Rules ---- */
+/* Section Active Styles */
+/* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
+section.your-active-class {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+section.your-active-class .landing__container::before {
+    opacity: 1;
+    animation: rotate 4s linear 0s infinite forwards;
+}
+
+section.your-active-class .landing__container::after {
+    opacity: 1;
+    animation: rotate 5s linear 0s infinite forwards reverse;
+}
+
+/* Section Active Styles Keyframe Animations */
+@keyframes rotate {
+	from {
+		transform: rotate(0deg)
+		           translate(-1em)
+		           rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg)
+		           translate(-1em) 
+		           rotate(-360deg);
+	}
+}
+
+/* -------- scroll to top button ------------ */
+
+#top_button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    background-color: #262626;
+    color: white;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    border-radius: 4px;
+    scroll-behavior: smooth;
+  }
+  
+  #top_button:hover {
+    background-color: #555;
+  }
